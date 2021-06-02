@@ -16,3 +16,6 @@
 自开发，对互联网新闻类网站资源进行爬取，使用django框架开发API接口。
 [开发API](http://guoxiaorui.cn/index.php/archives/73/)
 
+## 演示站点
+
+[胖妞热榜](http://news.guoxiaorui.cn/)
