@@ -48,7 +48,7 @@
 		methods:{
 			onLoad(){
 				uni.request({
-					url:'https://guoxiaorui.cn/md/',
+					url:this.websiteUrl+'/md/',
 					success: (res) => {
 						this.str=res.data
 					}
