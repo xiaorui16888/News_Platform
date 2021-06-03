@@ -1,4 +1,4 @@
-<p style="text-align: center;"><img src="./pangniu.png" alt="ColorUI简介"></img></p>
+<p style="text-align: center;"><img src="./pangniu.png" alt="胖妞热榜简介"></img></p>
 
 ## 前言
 该项目是我个人开发的一款简约版的新闻展示类程序。这个项目聚合了互联网多平台的热榜头条，足以做到“家事国事天下事，声声入耳”。
@@ -8,9 +8,9 @@
 作者我也是花了时间和精力的，开放的API是免费的，我不希望一些“无心人”对接口进行流量攻击~
 
 ## 交流
-微信：加入微信群请先添加开发者微信，备注**新闻**。扫描二维码。
+备注**新闻**。扫描二维码。
 
-![](./author.png)			  
+![pangniu](./author.png)			  
 
 ## API
 自开发，对互联网新闻类网站资源进行爬取，使用django框架开发API接口。
