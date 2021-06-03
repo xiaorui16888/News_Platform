@@ -75,7 +75,7 @@
 		data() {
 			return {
 				title: '',
-				newsList: [{}],
+				newsList: [],
 				pic: "../../static/pangniu.png"
 			};
 		},
@@ -83,10 +83,10 @@
 			onLoad: function(options) {
 				if (options.category) {
 					uni.request({
-						url: 'https://guoxiaorui.cn/news/find_by_category_news/' + encodeURIComponent(options.category),
-						header: {
-							'content-type': 'application/json'
-						},
+						url: this.websiteUrl+'/news/find_by_category_news/' + encodeURIComponent(options.category),
+						// header: {
+						// 	'content-type': 'application/json'
+						// },
 						success: (res) => {
 							this.title = res.data.name
 							this.newsList = res.data.list
@@ -96,10 +96,10 @@
 
 				} else {
 					uni.request({
-						url: 'https://guoxiaorui.cn/news/random_news',
-						header: {
-							'content-type': 'application/json'
-						},
+						url: this.websiteUrl+'/news/random_news',
+						// header: {
+						// 	'content-type': 'application/json'
+						// },
 						success: (res) => {
 							this.title = res.data.name
 							this.newsList = res.data.list
