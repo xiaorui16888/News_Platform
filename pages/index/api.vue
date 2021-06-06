@@ -20,8 +20,14 @@
 					<view class="cuIcon-cu-image">
 						<image src="/static/tabbar/plugin_cur.png"></image>
 					</view>
-					<view class="text-green">API</view>
+					<view class="text-green">帮我</view>
 				</navigator>
+				<!-- <navigator class="action" url="/pages/index/api">
+					<view class="cuIcon-cu-image">
+						<image src="/static/tabbar/plugin_cur.png"></image>
+					</view>
+					<view class="text-green">API</view>
+				</navigator> -->
 				<navigator class="action" url="/pages/index/about">
 					<view class="cuIcon-cu-image">
 						<image src="/static/tabbar/about.png"></image>

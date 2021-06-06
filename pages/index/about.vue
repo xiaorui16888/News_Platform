@@ -29,11 +29,18 @@
 					</view>
 					<view class="text-gray">探索</view>
 				</navigator>
-				<navigator class="action" url="/pages/index/api">
+				<navigator class="action" url="/pages/index/quan">
+					<view class="cuIcon-cu-image">
+						<image src="/static/tabbar/coupon.png"></image>
+						<view class="cu-tag badge"></view>
+					</view>
+					<view class="text-gray">优惠</view>
+				</navigator>
+				<navigator class="action" url="/pages/index/eatwhat">
 					<view class="cuIcon-cu-image">
 						<image src="/static/tabbar/plugin.png"></image>
 					</view>
-					<view class="text-gray">API</view>
+					<view class="text-gray">帮我</view>
 				</navigator>
 				<navigator class="action" url="/pages/index/about">
 					<view class="cuIcon-cu-image">

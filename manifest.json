@@ -40,7 +40,9 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "geolocation" : {}
+            }
         }
     },
     /* SDK配置 */
@@ -65,6 +67,13 @@
                     "target" : "https://api.guoxiaorui.cn",
                     "changeOrigin" : true,
                     "secure" : false
+                }
+            }
+        },
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "HRRBZ-SMFLJ-WZJFE-KWLZG-IOYCF-BEFNL"
                 }
             }
         }
