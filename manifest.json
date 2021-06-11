@@ -76,6 +76,9 @@
                     "key" : "HRRBZ-SMFLJ-WZJFE-KWLZG-IOYCF-BEFNL"
                 }
             }
+        },
+        "router" : {
+            "mode" : "hash"
         }
     }
 }

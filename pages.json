@@ -2,11 +2,11 @@
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-		    "path" : "pages/index/eatwhat",
+		    "path" : "pages/index/quan",
 		    "style" : {}
 		},
 		{
-		    "path" : "pages/index/quan",
+		    "path" : "pages/index/eatwhat",
 		    "style" : {}
 		},
 		{

@@ -1,5 +1,7 @@
 <template>
 	<view class="container">
+
+		<add-tip :tip="tip" :duration="duration" />
 		<v-tabs v-model="current" :tabs="tabs" @change="changeTab" class="tab"></v-tabs>
 		<view class="coupon" ref="coupon">
 			<view class="item" v-for="(v, i) in couponList" @click="toCoupon(i)" :key="i">
@@ -62,7 +64,9 @@
 </template>
 
 <script>
-	import dragball from "../../components/v-tabs/v-tabs.vue";
+	import jWeixin from '../../node_modules/jweixin-module/lib/index.js'
+	import addTip from "../../components/add-tip/add-tip.vue";
+	
 	export default {
 		data() {
 			return {
@@ -70,7 +74,7 @@
 				tabs: [],
 				couponList: [],
 				coupons: [],
-				tip: "点击「添加小程序」，下次访问更便捷",
+				tip: "点击「分享」，下次访问更便捷",
 				duration: 5,
 				messages: [{
 						"title": "美团饿了么大额红包，每日可领！"
@@ -96,7 +100,7 @@
 			};
 		},
 		components: {
-
+			addTip
 		},
 		onLoad() {
 			this.getHome()
@@ -111,8 +115,49 @@
 			this.changeTab(this.current)
 
 			// #ifdef H5
-			document.title = this.messages[Math.floor(Math.random()*this.messages.length)].title
+			document.title = this.messages[Math.floor(Math.random() * this.messages.length)].title
 			// #endif
+
+			const url = window.location.href;
+
+			uni.request({
+				url: 'https://api.guoxiaorui.cn/wxsign/' + encodeURIComponent(url) + '/',
+				success(res) {
+					//通过微信config接口注入配置
+					jWeixin.config({
+						debug: false, //调试模式
+						appId: res.data.appId, //必填，公众号的唯一标识
+						timestamp: res.data.timestamp, //必填，生成签名的时间戳
+						nonceStr: res.data.nonceStr, //必填，生成签名的随机串
+						signature: res.data.signature, //必填，签名
+						jsApiList: [
+							'updateTimelineShareData',
+							'updateAppMessageShareData'
+						] //必填，需要使用的JS接口列表
+					})
+
+					window.share_config = { //自定义分享内容
+						share: {
+							imgUrl: 'https://news.guoxiaorui.cn/static/quan.png', //分享图标
+							title: document.title, //分享标题
+							desc: '大额外卖券、低价充话费、腾讯/爱奇艺/优酷会员~', //分享介绍
+							link: url, //分享网址
+							success: function(res) {
+								// console.log(res)
+							}
+						}
+					}
+					jWeixin.ready(function() {
+						console.log(share_config.share)
+						jWeixin.updateTimelineShareData(share_config.share) //分享微信朋友圈
+						jWeixin.updateAppMessageShareData(share_config.share) //分享微信好友
+					})
+				},
+				fail(e) {
+					console.log(e)
+				}
+			})
+
 		},
 		methods: {
 			getHome() {
@@ -122,13 +167,12 @@
 						// console.log(res.data)
 						this.tabs = res.data.tabs
 						this.coupons = res.data.coupons
-						console.log('', res.data.coupons)
 						this.changeTab(0)
 					}
 				});
 			},
 			changeTab(index) {
-				console.log('当前选中的项：' + index);
+				// console.log('当前选中的项：' + index);
 				this.couponList = []
 				uni.showLoading({
 					title: '获取优惠中'
@@ -254,13 +298,13 @@
 				}
 
 				.bottom {
-					height: 200rpx;
+					height: 240rpx;
 					width: 100%;
 
 					image {
 						display: block;
 						width: 100%;
-						height: auto;
+						height: 240rpx !important;
 					}
 				}
 			}

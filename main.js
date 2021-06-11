@@ -15,6 +15,7 @@ Vue.component('cu-custom',cuCustom)
 
 Vue.config.productionTip = false
 Vue.prototype.websiteUrl = 'https://api.guoxiaorui.cn';  
+// Vue.config.ignoredElements = ['wx-open-launch-weapp'];
 
 
 App.mpType = 'app'
